@@ -1,0 +1,32 @@
+package lestgest_number;
+import java.util.Scanner;
+public class largest {
+
+	public static void main(String[] args) {
+	Scanner sc= new Scanner(System.in);
+	System.out.println("Enter the first number");
+	int a= sc.nextInt();
+	System.out.println("Enter the second number");
+	int b=sc.nextInt();
+	System.out.println("Enter the third number");
+	int c=sc.nextInt();
+int largest=c>(a>b?a:b)?c:(a>b?a:b);
+System.out.println(largest + "is largest number");
+	
+	
+	}
+	
+}
+	
+
+
+
+
+output;
+Enter the first number
+100
+Enter the second number
+200
+Enter the third number
+300
+300is largest number
