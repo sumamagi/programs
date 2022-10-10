@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class ascii {
+
+	public static void main(String[] args) {
+char ch;
+System.out.print("Enter any charecter");
+Scanner sc=new Scanner(System.in);
+ch=sc.next().charAt(0);
+int a=ch;
+System.out.println("AsCII value of " +ch+"is" + a);
+	}
+
+}
+
+
+
+output;
+
+Enter the number
+36
+reverse number is63
+
