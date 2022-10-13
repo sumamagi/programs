@@ -1,0 +1,25 @@
+package increment_decrement_d2;
+
+public class increment_decrement2 {
+public static void main (String[]args) {
+	
+	int x=5,x1;
+	x1=++x -x++ + -x;
+	
+	System.out.println("x1 valu is" +x1);
+	
+	
+	
+}
+}
+
+
+
+output;
+x1 valu is-7
+
+
+
+
+
+
