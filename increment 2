@@ -1,0 +1,21 @@
+package ingcrement_decrement_d1;
+
+public class increment_decrement1 {
+
+	public static void main(String[] args) {
+		int y=10,z;
+		z=(++y*(y++ +5));
+		
+		
+		System.out.println(z);
+
+	}
+
+}
+
+
+output;
+
+value of z  = 176
+
+
