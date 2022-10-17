@@ -1,0 +1,18 @@
+package number_element_array;
+
+public class number_array {
+
+	public static void main(String[] args) {
+		int []a=new int[] {245,1125,345,2345,1234,23};
+		System.out.println("numberof element" +a.length);
+
+	}
+
+}
+
+
+output;
+numberof element6
+
+
+
