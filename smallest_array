@@ -1,0 +1,24 @@
+package smallest_element_array;
+
+public class smallest_array {
+
+	public static void main(String[] args) {
+		int[]a= {5,45,56,76,46,78};
+		int smallest=a[0];
+		for(int i=0;i<a.length;i++)
+		{
+			if(smallest>a[i]) {
+				smallest=a[i];
+			}
+		}
+System.out.println("smallest element is" +smallest);
+	}
+
+}
+
+
+
+output;
+smallest element is5
+
+
