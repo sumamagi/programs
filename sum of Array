@@ -1,0 +1,17 @@
+public class sum_Array {
+
+	public static void main(String[] args) {
+		int [] a= {5,3,2,4,2,4,};
+		int sum=0;
+		for(int value:a) {
+			sum=sum+value;
+		}
+System.out.println("sum of the element is"+sum);
+	}
+
+}
+
+output;
+
+sum of the element is20
+
