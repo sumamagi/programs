@@ -1,0 +1,34 @@
+public class left_Shift {
+
+	public static void main(String[] args) {
+		int[] arr= {10,20,30,40,50};
+		System.out.print("before  left shift \n");
+		for(int j=0;j<arr.length; j++) {
+			
+		System.out.print(arr[j]+"");
+		}
+int temp=arr[0];
+int i=0;
+while(i<arr.length-1) {
+	arr[i]=arr[i+1];
+	    i = i+1;
+}
+
+arr[i]=temp;
+System.out.println(" \n affter left shift ");
+
+for(int j=0;j<arr.length; j++) {
+	System.out.print(arr[j]+"");
+}
+	}
+
+}
+
+
+output;
+
+before  left shift 
+1020304050 
+ affter left shift 
+2030405010
+
