@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class reverse2 {
+
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the number");
+	int num=sc.nextInt();
+	int val=num;
+	int rev=0,rem;
+	while(num !=0) {
+		rem=num%10;
+		rev=rev*10+rem;
+		num=num/10;
+	}
+	
+  
+	
+	int values=0;
+values=val-rev;
+
+System.out.println("reverse value is:" +rev+"-" + val + " values " + values);
+}
+}
+
+output;
+
+Enter the number
+1234
+reverse value is:4321-1234 values -3087
