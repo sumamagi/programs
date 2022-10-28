@@ -1,0 +1,16 @@
+package increment_3;
+
+public class increment3 {
+
+	public static void main(String[] args) {
+	
+int a=28;
+a=a++ + ++a + -a + -a;
+System.out.println("valu is =" + a);
+	}
+
+}
+
+output;
+
+valu is =-2
