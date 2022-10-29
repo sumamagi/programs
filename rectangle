@@ -1,0 +1,28 @@
+package rectangle;
+
+import java.util.Scanner;
+
+public class rectangle {
+
+	public static void main(String[] args) {
+		int area;
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter length and brith");
+		int l=sc.nextInt();
+		int b=sc.nextInt();
+		area=l*b;
+		System.out.println("rectangle is"+area);
+		
+
+	}
+
+}
+
+output;
+
+Enter length : 
+4
+Enter brith  :
+5
+rectangle is : 20
