@@ -1,0 +1,28 @@
+package quotien_remainder;
+
+import java.util.Scanner;
+
+public class quotien_remainder {
+
+	public static void main(String[] args) {
+		int remainter=0,squotien=0;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter tha number");
+		int n=sc.nextInt();
+		for(int i=1;i<=n; i++) {
+			
+			remainter=n%10;
+			squotien=n/10;
+		}
+			System.out.println("quotien:"+ squotien);
+			System.out.println("remainder:"+remainter);
+		}
+
+	}
+
+output;
+
+Enter tha number
+20
+quotien:2
+remainder:0
