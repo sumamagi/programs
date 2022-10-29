@@ -1,0 +1,24 @@
+package square_area;
+
+import java.util.Scanner;
+
+public class square_area {
+
+	public static void main(String[] args) {
+		int side,area;
+	Scanner sc=new Scanner(System.in) ;
+	System.out.print("Enter tha side of square");
+	 side=sc.nextInt();
+	 area=side*side;
+	 System.out.print("square of"+area);
+		
+		
+	}
+
+	}
+
+output;
+
+Enter tha side of square
+4
+square of16
