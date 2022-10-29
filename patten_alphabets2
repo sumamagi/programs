@@ -1,0 +1,26 @@
+package patten_alphabets;
+
+public class patten_alphabets {
+
+	public static void main(String[] args) {
+		int n=3;
+		for (int i=1,p='c';i<=n;i++ ,p--) {
+			for(int j=i;j<=n;j++) {
+				System.out.print("");
+			}
+			for(int j=i;j<=n;j++) {
+				System.out.print((char)p +"");
+				
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+output;
+
+ccc
+bb
+a
