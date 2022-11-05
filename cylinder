@@ -1,0 +1,28 @@
+package cylinder;
+
+import java.util.Scanner;
+
+public class Cylinder {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter The  radius");
+		int radius=sc.nextInt();
+		System.out.println("Enter hight");
+		int hight=sc.nextInt();
+		double pi=Math.PI;
+		double area=2*3.14*radius*radius*hight;
+		System.out.println("area of cylinder is "+area);
+
+	}
+
+}
+
+
+output;
+
+enter The  radius
+34
+Enter hight
+23
+area of cylinder is 166972.64
