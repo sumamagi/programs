@@ -1,0 +1,48 @@
+import java.util.Arrays;
+
+public class Merged_Array {
+
+	public static void main(String[] args) {
+
+		
+		
+			int []a= {2,4,5,6,7,9,10,13};
+		    int []b= {2,3,4,5,6,7,8,9,11,15};
+		     
+		    int len=a.length+b.length;
+		    int []c=new int [len];
+		    for(int i=0;i<b.length;i++) {
+		    c[i]=b[i];
+		     for(int j=0;j<a.length;j++) {
+		               if(c[i]==a[j])
+		               {
+		             a[j]=-1;
+		               }
+		              
+		     
+		             }
+		    }
+		    int k=0;
+		    for (int i=0;i<a.length;i++){
+		    
+		    if(a[i]!=-1)    {
+		    c[b.length+k++]=a[i];
+		    }
+		    
+
+		}
+		       Arrays.sort(c); 
+
+		    for (int i=0;i<c.length;i++){
+			        if(c[i]!=0)
+			    	System.out.print(c[i]+" ");
+			       
+					    
+		    
+		}
+		}
+}
+
+output;
+
+2 3 4 5 6 7 8 9 10 11 13 15 
