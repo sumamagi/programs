@@ -1,0 +1,59 @@
+package group2;
+
+import java.util.Scanner;
+
+public class Group_2 {
+
+	public static void main(String[] args) {
+	Scanner sc= new Scanner(System.in);
+	System.out.println("Enter the number ");
+	int firstInput=sc.nextInt();
+	int secondInput=sc.nextInt();
+	int sub=secondInput-firstInput;
+	
+	
+	int i ,j;
+	for(i=1;i<sub/4+1;i++) {
+		   
+		System.out.print("group:"+i+"\n");
+		for(j=firstInput;j<=secondInput;j=j+4) 
+		{
+	                     System.out.println(j);           
+		}
+	        firstInput++;   
+		
+		System.out.println();
+	}
+}
+}
+
+output;
+Enter the number 
+101
+119
+group:1
+101
+105
+109
+113
+117
+
+group:2
+102
+106
+110
+114
+118
+
+group:3
+103
+107
+111
+115
+119
+
+group:4
+104
+108
+112
+116
