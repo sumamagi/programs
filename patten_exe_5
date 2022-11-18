@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Duplicate_Remove {
+
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the number");
+	int n=sc.nextInt();
+		 int i,j,k,l;
+		for( i=n; i>=1; i--) {
+			
+			for( j=i-1; j>=1; j--) {
+				System.out.print(" ");
+			}
+			for( k=i;k<=n;k++) {
+			
+				System.out.print(k); 
+				
+			}
+			for ( l=n-1;l>=i;l--) {
+					System.out.print(l);
+				}
+		
+		System.out.println();
+		}
+		
+		}
+
+	}
+
+output;
+        9
+       898
+      78987
+     6789876
+    567898765
+   45678987654
+  3456789876543
+ 234567898765432
+12345678987654321
