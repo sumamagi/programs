@@ -1,0 +1,24 @@
+package program_ex;
+
+public class String_3 {
+
+	public static void main(String[] args) {
+	int num=5,bin=0,rem=0,place=1,var;
+	System.out.println("decimal no:"+num);
+	var=num;
+	while(num!=0) {
+		rem=num%2;
+		num=num/2;
+		bin=bin+(rem*place);
+		place=place*10;
+	}
+	System.out.print( "binari number"+bin);
+
+	}
+
+}
+
+
+output;
+decimal no:5
+binari number101
