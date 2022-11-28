@@ -1,0 +1,45 @@
+package program_ex;
+import java.lang.Math;
+import java.util.*;
+public class Quadratic_Equation {
+
+	public static void main(String[] args) {
+		double A,B,C,P,Q;
+		Scanner sc=new Scanner(System.in);
+System.out.print("Enter the valu of A:");
+A=sc.nextDouble();
+System.out.print("Enter the valu of B:");
+B=sc.nextDouble();
+System.out.print("Enter the valu of B:");
+C=sc.nextDouble();
+double discrement=B*B-4*A*C;
+if(discrement>0) {
+	P=((-B-Math.sqrt(discrement))/2*A);
+	Q=((-B-Math.sqrt(discrement))/2*A);
+	
+	System.out.print("the Quadratic Equations are p:"+P+"Q"+Q);
+}
+	
+	else if(discrement==0) {
+		double r1=-B/(2.0*A);
+		
+		System.out.print(" The roots is :"+r1);
+	
+	}
+	else
+	{
+		System.out.print(" roots are not real :");
+
+
+}
+	}
+
+}
+
+
+output;
+Enter the valu of A:
+32
+Enter the valu of B:2
+Enter the valu of B:2
+ roots are not real :
