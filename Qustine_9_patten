@@ -1,0 +1,45 @@
+package program_ex;
+
+import java.util.Scanner;
+
+public class Qustine_9_patten {
+
+	public static void main(String[] args) {
+	     Scanner sc=new Scanner(System.in);
+	     System.out.println("Enter the number");
+	     int n=sc.nextInt(),i,j;
+	     for(i=1;i<=n*2;i++)
+		{
+	    for(j=1;j<=n*2;j++)
+	    { 
+	        if((i+j<=n+1)||(i-j<=-n)||(i+j>=3*n+1)||(i-j>=n)) {
+	    
+	      System.out.print ("*");
+	        }   
+	    else{
+	         System.out.print(" ");
+	    }
+	         
+	    }
+	    
+	      System.out.println();
+		
+	    }
+
+	
+	 }
+	
+
+	}
+
+output;
+Enter the number
+4
+********
+***  ***
+**    **
+*      *
+*      *
+**    **
+***  ***
+********
