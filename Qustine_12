@@ -1,0 +1,13 @@
+package program_ex;
+
+public class Qustion_12 {
+
+	public static void main(String[] args) {
+		float c=7.500f;
+		System.out.printf("%.2f",c);
+
+	}
+
+}
+output;
+7.50
