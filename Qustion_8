@@ -1,0 +1,11 @@
+package program_ex;
+
+public class Static {
+	static String name="abc";
+public static void main(String args[]) {
+	System.out.println(name);
+}
+}
+
+output;
+abc
