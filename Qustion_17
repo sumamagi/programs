@@ -1,0 +1,25 @@
+public class Qustion_8 {
+	static double calculateArea(int x,int y) {
+		double pi=3.14;
+		//calculate area of outer circle
+		double arx=pi*x*x;
+		//calculate area of inner circle
+		double ary=pi*y*y;
+		return arx-ary;
+	}
+
+	public static void main(String[] args) {
+		int x=2;
+		int y=1;
+		System.out.println(calculateArea(x,y));
+	   
+	    }
+	    
+	
+
+	}
+
+
+output;
+
+9.42
