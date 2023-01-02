@@ -1,0 +1,29 @@
+package program_ex;
+
+public class Qustion_71_ {
+
+	public static void main(String[] args) {
+		int array[]= {1,2,3,4,5,6,7};
+		int min=Integer.MAX_VALUE;
+		int s_min=Integer.MIN_VALUE;
+for( int i=0;i<array.length;i++) {
+	if(array[i]<min) {
+		s_min=min;
+		min=array[i];
+		
+	}
+	else if(array[i]<s_min) {
+		s_min=array[i];
+	}
+}
+	System.out.println("secount min"+s_min);
+	System.out.println("smallest number"+min);
+
+	}
+
+}
+
+output;
+
+secount min2
+smallest number1
