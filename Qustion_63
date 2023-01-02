@@ -1,0 +1,26 @@
+package qustines_1;
+
+public class Qustion_63 {
+
+	public static void main(String[] args) {
+		int [] array= {1,2,3,4,5,6,7};
+		int i,j;
+		for( i=1;i<array.length;i=i+2) {
+		System.out.println("odd position:"+i+":"+"Even value"+array[i]);
+		}
+for ( j=2;j<array.length;j=j+2) {
+System.out.println( "Even position:"+i+":"+"Even value"+array[j]);
+
+	}
+
+}
+}
+
+output;
+
+odd position:1:Even value2
+odd position:3:Even value4
+odd position:5:Even value6
+Even position:7:Even value3
+Even position:7:Even value5
+Even position:7:Even value7
