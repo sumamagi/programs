@@ -1,0 +1,31 @@
+package program_ex;
+
+public class Qustion_62 {
+
+	public static void main(String[] args) {
+		int [] array= {2,4,10,6,7,8};
+		int  large=Integer.MAX_VALUE;
+		int small=Integer.MIN_VALUE;
+		for(int number:array) {
+			if(number<large) {
+				large=number;
+			}
+		}
+			System.out.println("large number="+large);
+			
+		
+for(int number:array) {
+	if(number>small) {
+		small=number;
+	}
+}
+	System.out.println("small number ="+small);
+
+
+	}
+
+}
+
+output;
+large number=2
+small number =10
