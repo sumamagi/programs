@@ -1,0 +1,29 @@
+package program_ex;
+
+public class Qustion_71 {
+
+	public static void main(String[] args) {
+		int []array= {1,200,3,4,5,6,7};
+		int max=0,secountmax=0;
+		
+		int i=0;
+		while(i<array.length) {
+			if(array[i]>max) {
+				secountmax=max;
+				max=array[i];
+				
+			}
+			else if(array[i]>secountmax) {
+				secountmax=array[i];
+			}
+			i++;
+		}
+System.out.println("max number: "+max);
+System.out.println("secountmax number: "+secountmax);
+	
+
+}
+}
+output;
+max number: 200
+secountmax number: 7
