@@ -1,0 +1,39 @@
+class Animal {
+
+    public void eat() {
+        System.out.println("animal are eating");
+    }
+}
+
+class Dog extends Animal {
+
+    public void eat() {
+        System.out.println("Dogs eat milk");
+    }
+}
+
+class Cat extends Animal {
+
+    public void eat() {
+        System.out.println("Cats eat milk");
+    }
+}
+
+
+
+class Overriding {
+
+    public static void main(String[] args) {
+
+
+    Dog d = new Dog();
+    d.eat();
+
+    Cat c = new Cat();
+    c.eat();
+    
+}
+}
+ output;
+ Dogs eat milk
+Cats eat milk
