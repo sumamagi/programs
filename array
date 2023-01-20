@@ -1,0 +1,65 @@
+		import java.io.*;
+
+public class Access3 {
+		    static int array(int arr[], int n)
+		    {
+		      
+		    int Sum = 0 ;
+		  
+
+		    for (int i = 0; i < n; i++)
+		    {
+		  
+		        Sum += arr[i] ;
+		  
+		   
+		        int rightSum = 0 ;
+		          
+		        for (int j = i+1 ; j < n ; j++ )
+		            rightSum += arr[j] ;
+		  
+		   
+		        if (Sum == rightSum)
+		            return i+1 ;
+		    }
+		  
+		 
+		    return -1;
+		    }   
+		  
+
+		    static void arraypoint(int arr[], int n)
+		    {
+		      
+		        int split= array(arr, n);
+		      
+		        if (split == -1 || split == n )
+		        {
+		            System.out.println("Not Possible");
+		            return;
+		        }
+		          
+		        for (int i = 0; i < n; i++)
+		        {
+		            if(split == i)
+		               System.out.println();
+		                 
+		            System.out.print(arr[i] + " ");
+		              
+		        }
+		    }
+		  
+	
+		      
+		    public static void main (String[] args) {
+		      
+		    int arr[] = {1,2 ,3,1,5};
+		    int n = arr.length;
+		    arraypoint(arr, n);
+		      
+		    }
+		
+
+	}
+
+
