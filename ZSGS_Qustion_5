@@ -1,0 +1,55 @@
+package stack;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Qustion_5_Zsgs {
+	
+
+
+		public static Map<Character,Integer> countRefCharInOriginal(String input, String ref){
+
+		Map<Character, Integer> charCountOriginal = new HashMap<>();
+
+		Map<Character, Integer> charCountFinal = new HashMap<>();
+
+		input = input.toLowerCase();
+		ref = ref.toLowerCase();
+
+		for(int i=0;i<input.toCharArray().length;i++) {
+
+		if(input.charAt(i) == ' ') {
+		continue;
+		}
+		if(!charCountOriginal.containsKey(input.charAt(i))){
+		charCountOriginal.put(input.charAt(i), 1);
+		}else {
+		charCountOriginal.put(input.charAt(i), charCountOriginal.get(input.charAt(i))+1);
+		}
+		}
+
+
+		for(int i=0;i<ref.toCharArray().length;i++) {
+		if(charCountOriginal.containsKey(ref.charAt(i))) {
+		charCountFinal.put(ref.charAt(i), charCountOriginal.get(ref.charAt(i)));
+		}
+		else {
+		charCountFinal.put(ref.charAt(i), 0);
+		}
+		}
+
+
+		return charCountFinal;
+
+		}
+
+		public static void main(String[] args) {
+
+		Map<Character, Integer> result = countRefCharInOriginal("Hello World Please", "Help");
+
+		result.entrySet().forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
+		
+
+	}
+
+}
