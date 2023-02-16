@@ -140,6 +140,26 @@ public void run() {
     boolean done = false;
     while (!done) {
         int choice = view.showMenu
+        
+        
+        
+        
 
+ example out put;
+ Enter choice: 1
+Enter flight number: BA123
+Enter airline: British Airways
+Enter origin: London
+Enter destination: New York
+Enter capacity: 300
+Flight added successfully.
+
+Enter choice: 2
+Flight BA123 operated by British Airways from London to New York with 300 seats available.
+
+Enter choice: 3
+Enter flight number: BA123
+Enter passenger name: John Smith
+Seat reserved successfully.
 
 
