@@ -1,0 +1,145 @@
+Model (Flight.java):
+
+public class Flight {
+private String flightNumber;
+private String airline;
+private String origin;
+private String destination;
+private int capacity;
+private ArrayList<String> passengers;
+
+typescript
+Copy code
+public Flight(String flightNumber, String airline, String origin, String destination, int capacity) {
+    this.flightNumber = flightNumber;
+    this.airline = airline;
+    this.origin = origin;
+    this.destination = destination;
+    this.capacity = capacity;
+    passengers = new ArrayList<>();
+}
+
+public String getFlightNumber() {
+    return flightNumber;
+}
+
+public boolean reserveSeat(String passengerName) {
+    if (passengers.size() < capacity) {
+        passengers.add(passengerName);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+public String toString() {
+    return "Flight " + flightNumber + " operated by " + airline + " from " + origin + " to " + destination + " with " + (capacity - passengers.size()) + " seats available.";
+}
+}
+
+View (FlightReservationSystemView.java):
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class FlightReservationSystemView {
+private Scanner scanner;
+
+csharp
+Copy code
+public FlightReservationSystemView() {
+    scanner = new Scanner(System.in);
+}
+
+public int showMenu() {
+    System.out.println("1. Add Flight");
+    System.out.println("2. List Flights");
+    System.out.println("3. Reserve Seat");
+    System.out.println("4. Exit");
+    System.out.print("Enter choice: ");
+    int choice = scanner.nextInt();
+    scanner.nextLine();
+    return choice;
+}
+
+public void showInvalidChoice() {
+    System.out.println("Invalid choice.");
+}
+
+public String getFlightNumber() {
+    System.out.print("Enter flight number: ");
+    return scanner.nextLine();
+}
+
+public String getAirline() {
+    System.out.print("Enter airline: ");
+    return scanner.nextLine();
+}
+
+public String getOrigin() {
+    System.out.print("Enter origin: ");
+    return scanner.nextLine();
+}
+
+public String getDestination() {
+    System.out.print("Enter destination: ");
+    return scanner.nextLine();
+}
+
+public int getCapacity() {
+    System.out.print("Enter capacity: ");
+    return scanner.nextInt();
+}
+
+public void showFlightAdded() {
+    System.out.println("Flight added successfully.");
+}
+
+public void showNoFlightsFound() {
+    System.out.println("No flights found.");
+}
+
+public void showFlight(Flight flight) {
+    System.out.println(flight);
+}
+
+public String getPassengerName() {
+    System.out.print("Enter passenger name: ");
+    return scanner.nextLine();
+}
+
+public void showSeatReserved() {
+    System.out.println("Seat reserved successfully.");
+}
+
+public void showSeatNotReserved() {
+    System.out.println("Seat could not be reserved.");
+}
+
+public void showFlightNotFound() {
+    System.out.println("Flight not found.");
+}
+}
+
+Controller (FlightReservationSystemController.java):
+
+import java.util.ArrayList;
+
+public class FlightReservationSystemController {
+private ArrayList<Flight> flights;
+private FlightReservationSystemView view;
+
+csharp
+Copy code
+public FlightReservationSystemController() {
+    flights = new ArrayList<>();
+    view = new FlightReservationSystemView();
+}
+
+public void run() {
+    boolean done = false;
+    while (!done) {
+        int choice = view.showMenu
+
+
+
