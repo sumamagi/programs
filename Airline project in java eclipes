@@ -1,0 +1,132 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class FlightReservationSystem {
+    
+    private ArrayList<Flight> flights;
+    private Scanner scanner;
+
+    public FlightReservationSystem() {
+        flights = new ArrayList<>();
+        scanner = new Scanner(System.in);
+    }
+
+    public static void main(String[] args) {
+        FlightReservationSystem system = new FlightReservationSystem();
+        system.run();
+    }
+
+    public void run() {
+        boolean done = false;
+        while (!done) {
+            System.out.println("1. Add Flight");
+            System.out.println("2. List Flights");
+            System.out.println("3. Reserve Seat");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    addFlight();
+                    break;
+                case 2:
+                    listFlights();
+                    break;
+                case 3:
+                    reserveSeat();
+                    break;
+                case 4:
+                    done = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    break;
+            }
+        }
+    }
+
+    private void addFlight() {
+        System.out.print("Enter flight number: ");
+        String flightNumber = scanner.nextLine();
+        System.out.print("Enter airline: ");
+        String airline = scanner.nextLine();
+        System.out.print("Enter origin: ");
+        String origin = scanner.nextLine();
+        System.out.print("Enter destination: ");
+        String destination = scanner.nextLine();
+        System.out.print("Enter capacity: ");
+        int capacity = scanner.nextInt();
+        scanner.nextLine();
+        flights.add(new Flight(flightNumber, airline, origin, destination, capacity));
+        System.out.println("Flight added successfully.");
+    }
+
+    private void listFlights() {
+        if (flights.isEmpty()) {
+            System.out.println("No flights found.");
+        } else {
+            for (Flight flight : flights) {
+                System.out.println(flight);
+            }
+        }
+    }
+
+    private void reserveSeat() {
+        System.out.print("Enter flight number: ");
+        String flightNumber = scanner.nextLine();
+        for (Flight flight : flights) {
+            if (flight.getFlightNumber().equals(flightNumber)) {
+                System.out.print("Enter passenger name: ");
+                String passengerName = scanner.nextLine();
+                if (flight.reserveSeat(passengerName)) {
+                    System.out.println("Seat reserved successfully.");
+                } else {
+                    System.out.println("Seat could not be reserved.");
+                }
+                return;
+            }
+        }
+        System.out.println("Flight not found.");
+    }
+}
+
+class Flight {
+    private String flightNumber;
+    private String airline;
+    private String origin;
+    private String destination;
+    private int capacity;
+    private ArrayList<String> passengers;
+
+    public Flight(String flightNumber, String airline, String origin, String destination, int capacity) {
+        this.flightNumber = flightNumber;
+        this.airline = airline;
+        this.origin = origin;
+        this.destination = destination;
+        this.capacity = capacity;
+        passengers = new ArrayList<>();
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public boolean reserveSeat(String passengerName) {
+        if (passengers.size() < capacity) {
+            passengers.add(passengerName);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String toString() {
+        return "Flight " + flightNumber + " operated by " + airline + " from " + origin + " to " + destination + " with " + (capacity - passengers.size()) + " seats available.";
+    }
+}
+This code allows the user to add flights
+
+
+
+
