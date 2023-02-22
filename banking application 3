@@ -1,0 +1,103 @@
+public interface BankOperations {
+    int getBalance();
+    void deposit(int amount);
+    boolean withdraw(int amount);
+}
+Next, create the BankAccount class which implements the BankOperations interface:
+
+java
+Copy code
+public class BankAccount implements BankOperations {
+    private int balance;
+
+    public BankAccount(int initialBalance) {
+        balance = initialBalance;
+    }
+
+    @Override
+    public int getBalance() {
+        return balance;
+    }
+
+    @Override
+    public void deposit(int amount) {
+        balance += amount;
+    }
+
+    @Override
+    public boolean withdraw(int amount) {
+        if (amount > balance) {
+            return false;
+        }
+        balance -= amount;
+        return true;
+    }
+}
+Then, create the BankingController class which acts as the controller in the MVC pattern:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class BankingController {
+    private BankOperations bank;
+    private Scanner scanner;
+
+    public BankingController(BankOperations bank) {
+        this.bank = bank;
+        scanner = new Scanner(System.in);
+    }
+
+    public void run() {
+        boolean quit = false;
+        while (!quit) {
+            System.out.println("Welcome to MyBank");
+            System.out.println("------------------");
+            System.out.println("1. Check Balance");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Quit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Your balance is: " + bank.getBalance());
+                    break;
+                case 2:
+                    System.out.print("Enter deposit amount: ");
+                    int deposit = scanner.nextInt();
+                    bank.deposit(deposit);
+                    System.out.println("Deposit successful.");
+                    break;
+                case 3:
+                    System.out.print("Enter withdrawal amount: ");
+                    int withdrawal = scanner.nextInt();
+                    boolean success = bank.withdraw(withdrawal);
+                    if (success) {
+                        System.out.println("Withdrawal successful.");
+                    } else {
+                        System.out.println("Insufficient balance.");
+                    }
+                    break;
+                case 4:
+                    quit = true;
+                    System.out.println("Thank you for using MyBank.");
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+            System.out.println(); // Print a blank line for spacing
+        }
+    }
+}
+Finally, create the Main class which acts as the view in the MVC pattern and runs the application:
+
+java
+Copy code
+public class Main {
+    public static void main(String[] args) {
+        BankOperations bank = new BankAccount(0);
+        BankingController controller = new BankingController(bank);
+        controller.run();
+    }
+}
