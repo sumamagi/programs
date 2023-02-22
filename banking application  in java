@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class BankingApp {
+
+    public static void main(String[] args) {
+        
+        // Initialize variables
+        int balance = 0;
+        boolean quit = false;
+        
+        // Create a Scanner object to read input from the console
+        Scanner scanner = new Scanner(System.in);
+        
+        // Display the initial menu
+        System.out.println("Welcome to MyBank");
+        System.out.println("------------------");
+        System.out.println("1. Check Balance");
+        System.out.println("2. Deposit");
+        System.out.println("3. Withdraw");
+        System.out.println("4. Quit");
+        
+        // Loop until the user chooses to quit
+        while (!quit) {
+            
+            // Get the user's choice
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            
+            // Process the user's choice
+            switch (choice) {
+            
+                case 1:
+                    System.out.println("Your balance is: " + balance);
+                    break;
+                    
+                case 2:
+                    System.out.print("Enter deposit amount: ");
+                    int deposit = scanner.nextInt();
+                    balance += deposit;
+                    System.out.println("Deposit successful.");
+                    break;
+                    
+                case 3:
+                    System.out.print("Enter withdrawal amount: ");
+                    int withdrawal = scanner.nextInt();
+                    
+                    // Check if there is enough balance to make the withdrawal
+                    if (withdrawal > balance) {
+                        System.out.println("Insufficient balance.");
+                    } else {
+                        balance -= withdrawal;
+                        System.out.println("Withdrawal successful.");
+                    }
+                    
+                    break;
+                    
+                case 4:
+                    quit = true;
+                    System.out.println("Thank you for using MyBank.");
+                    break;
+                    
+                default:
+                    System.out.println("Invalid choice.");
+            }
+            
+            System.out.println(); // Print a blank line for spacing
+            
+            // Display the menu again unless the user has chosen to quit
+            if (!quit) {
+                System.out.println("1. Check Balance");
+                System.out.println("2. Deposit");
+                System.out.println("3. Withdraw");
+                System.out.println("4. Quit");
+            }
+        }
+        
+        // Close the scanner
+        scanner.close();
+    }
