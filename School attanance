@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class SchoolAttendance {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Get the number of students
+        System.out.print("Enter the number of students: ");
+        int numStudents = input.nextInt();
+        
+        // Create an array to store student names
+        String[] studentNames = new String[numStudents];
+        
+        // Get the name of each student
+        for (int i = 0; i < numStudents; i++) {
+            System.out.print("Enter the name of student " + (i+1) + ": ");
+            studentNames[i] = input.next();
+        }
+        
+        // Create an array to store attendance data
+        boolean[][] attendance = new boolean[numStudents][5];
+        
+        // Get attendance data for each student
+        for (int i = 0; i < numStudents; i++) {
+            System.out.println("Enter attendance data for " + studentNames[i] + ":");
+            for (int j = 0; j < 5; j++) {
+                System.out.print("Day " + (j+1) + " (Present=1, Absent=0): ");
+                attendance[i][j] = (input.nextInt() == 1);
+            }
+        }
+        
+        // Display attendance report
+        System.out.println("\nAttendance Report:");
+        System.out.println("==================");
+        System.out.print("Name\t\t");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Day " + (i+1) + "\t");
+        }
+        System.out.println("Total");
+        
+        for (int i = 0; i < numStudents; i++) {
+            int total = 0;
+            System.out.print(studentNames[i] + "\t");
+            for (int j = 0; j < 5; j++) {
+                System.out.print((attendance[i][j] ? "P" : "A") + "\t");
+                if (attendance[i][j]) {
+                    total++;
+                }
+            }
+            System.out.println(total);
+        }
+    }
+}
