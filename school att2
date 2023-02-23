@@ -1,0 +1,104 @@
+public class Person {
+    protected String name;
+    
+    public Person(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+}
+ 
+ 
+ 
+ 
+ public class Student extends Person {
+    private boolean[] attendance;
+    
+    public Student(String name, int numDays) {
+        super(name);
+        attendance = new boolean[numDays];
+    }
+    
+    public void recordAttendance(int day, boolean present) {
+        attendance[day] = present;
+    }
+    
+    public boolean[] getAttendance() {
+        return attendance;
+    }
+}
+
+
+
+public class Teacher extends Person {
+    public Teacher(String name) {
+        super(name);
+    }
+    
+    public void teach() {
+        // Method to teach a class
+    }
+    
+    public void takeAttendance(Student[] students, int day) {
+        Scanner input = new Scanner(System.in);
+        for (int i = 0; i < students.length; i++) {
+            System.out.print("Is " + students[i].getName() + " present? (y/n): ");
+            String answer = input.next();
+            boolean present = answer.equalsIgnoreCase("y");
+            students[i].recordAttendance(day, present);
+        }
+    }
+}
+
+
+
+
+public class Model {
+    private Teacher teacher;
+    private Student[] students;
+    private int numDays;
+    private int currentDay;
+    
+    public Model(String teacherName, String[] studentNames, int numDays) {
+        this.teacher = new Teacher(teacherName);
+        this.students = new Student[studentNames.length];
+        for (int i = 0; i < studentNames.length; i++) {
+            this.students[i] = new Student(studentNames[i], numDays);
+        }
+        this.numDays = numDays;
+        this.currentDay = 0;
+    }
+    
+    public Teacher getTeacher() {
+        return teacher;
+    }
+    
+    public Student[] getStudents() {
+        return students;
+    }
+    
+    public int getNumDays() {
+        return numDays;
+    }
+    
+    public int getCurrentDay() {
+        return currentDay;
+    }
+    
+    public void takeAttendance() {
+        teacher.takeAttendance(students, currentDay);
+        currentDay++;
+    }
+    
+    public boolean isAttendanceComplete() {
+        return currentDay >= numDays;
+    }
+}
+
+
+
+
+public class View {
+   
