@@ -1,0 +1,87 @@
+class LuxuryRoom extends Room {
+    private boolean hasJacuzzi;
+    pri
+    
+    
+    
+   // Model
+class HotelBookingSystemModel {
+    private Room[] rooms;
+
+    public HotelBookingSystemModel() {
+        rooms = new Room[5];
+        rooms[0] = new Room(101, "Single", 1, 50.00);
+        rooms[1] = new Room(102, "Double", 2, 75.00);
+        rooms[2] = new Room(103, "Triple", 3, 100.00);
+        rooms[3] = new Room(104, "Quad", 4, 125.00);
+        rooms[4] = new Room(105, "Suite", 6, 200.00);
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+}
+
+// View
+class HotelBookingSystemView {
+    public void displayRooms(Room[] rooms) {
+        System.out.println("Welcome to the Hotel Booking
+vate boolean hasMinibar;
+
+    public LuxuryRoom(int roomNumber, String roomType, int capacity, double price, boolean hasJacuzzi, boolean hasMinibar) {
+        super(roomNumber, roomType, capacity, price);
+        this.hasJacuzzi = hasJacuzzi;
+        this.hasMinibar = hasMinibar;
+    }
+
+    public boolean hasJacuzzi() {
+        return hasJacuzzi;
+    }
+
+    public boolean hasMinibar() {
+        return hasMinibar;
+    }
+
+    @Override
+    public String toString() {
+        String status = isOccupied() ? "Occupied" : "Available";
+        String features = "";
+        if (hasJacuzzi) {
+            features += " Jacuzzi,";
+        }
+        if (hasMinibar) {
+            features += " Minibar,";
+        }
+        if (features.isEmpty()) {
+            features = "None";
+        } else {
+            features = features.substring(0, features.length() - 1);
+        }
+        return "Room " + getRoomNumber() + ": " + getRoomType() + " (" + getCapacity() + " people) - $" + getPrice() + " per night (" + status + ") - Features: " + features;
+    }
+}
+
+
+
+// Model
+class HotelBookingSystemModel {
+    private Room[] rooms;
+
+    public HotelBookingSystemModel() {
+        rooms = new Room[5];
+        rooms[0] = new Room(101, "Single", 1, 50.00);
+        rooms[1] = new Room(102, "Double", 2, 75.00);
+        rooms[2] = new Room(103, "Triple", 3, 100.00);
+        rooms[3] = new Room(104, "Quad", 4, 125.00);
+        rooms[4] = new Room(105, "Suite", 6, 200.00);
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+}
+
+// View
+class HotelBookingSystemView {
+    public void displayRooms(Room[] rooms) {
+        System.out.println("Welcome to the Hotel Booking
