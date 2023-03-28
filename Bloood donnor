@@ -1,0 +1,367 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class  BloodDonorApplication {
+	private static ArrayList<BloodDonor> donors = new ArrayList<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+        	 System.out.println("Blood Donor Application");
+	            System.out.println("1. Add Donor");
+	            System.out.println("2. Search Donor");
+	            System.out.println("3. Exit");
+	            
+	            System.out.print("Enter your choice: ");
+            try {
+                int choice = sc.nextInt();
+               sc.nextLine();
+                switch (choice) {
+                    case 1:
+                        addDonor(sc);
+                        break;
+                    case 2:
+                        searchDonor(sc);
+                        break;
+                    case 3:
+                       sc.close();
+                        System.exit(0);
+                    default:
+                        System.out.println("Invalid choice. Please enter 1, 2, or 3.");
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please try again.");
+                sc.nextLine();
+            }}}
+        
+	     public static void addDonor(Scanner sc) {
+	
+        System.out.println("Enter donor details:");
+        System.out.print("Enter the donor's name:");
+        String name = sc.next();
+
+        boolean donorExists = false;
+        for (BloodDonor d : donors) {
+            if (d.getName().equalsIgnoreCase(name)) {
+                System.out.println("Error: Donor with same name already exists.");
+                donorExists = true;
+                break;
+            }
+        }
+
+        if (donorExists) {
+            return;
+        }
+      
+        
+	        System.out.print("Enter the donor's age:");
+	        int age = sc.nextInt();
+	      sc.nextLine();
+	        if (age < 25 || age > 80) {
+	            System.out.println("Invalid age. Age should be between 25 and 80.");
+
+	            return;
+	        }
+	        
+	        System.out.print("Enter the donor's weight:");
+	      double weight = sc.nextDouble();
+	      sc.nextLine();
+	        if (weight < 45) {
+	            System.out.println("Invalid weight. Weight should be greater than 45.");
+	            return;
+	        }
+	        String bloodGroup = "";
+	        while (true) {
+	            System.out.print("Enter the donor's blood group (A/B/AB/O): ");
+	         bloodGroup = sc.next().toUpperCase();
+	         if (bloodGroup.equals("A") || bloodGroup.equals("B") || bloodGroup.equals("AB") || bloodGroup.equals("O") || 
+	                 bloodGroup.equals("A-") || bloodGroup.equals("B-") || bloodGroup.equals("AB-") || bloodGroup.equals("O-")) {
+	                 break;
+	             } else {
+	                 System.out.println("Invalid blood group. Please enter a valid blood group.");
+	             }
+	         }
+	        
+       
+	       
+	        System.out.print("Enter the donor's mobile number:");
+	        String mobileNumber = sc.next();
+	        if (mobileNumber.length() != 10) {
+	            System.out.println("Invalid mobile number. Mobile number should be 10 digits.");
+	            return;
+	        }
+	        System.out.print("Enter the donor's email:");
+	        String email = sc.nextLine();
+	        sc.nextLine();
+	         
+	        
+	        System.out.print("Enter the donor's city: ");
+	        String city = sc.next();
+	        city = city.toUpperCase();
+	        
+	        System.out.print("Enter the donor's state: ");
+	        String state = sc.next();
+	        state = state.toUpperCase();
+	        
+	        
+	        System.out.print("Address: ");
+	        String address = sc.nextLine();
+	        sc.nextLine();
+	        BloodDonor donor = new BloodDonor(name, age, weight, bloodGroup, mobileNumber, city, state,address);
+	        donors.add(donor);
+	        System.out.println("Donor added successfully.");
+	    }
+	 
+	     
+	    
+	   
+		
+
+		public static void searchDonor(Scanner sc) {
+	        System.out.println("Search donor by:");
+	        System.out.println("1. Nearest donor");
+	        System.out.println("2. View all donors");
+	        System.out.print("Enter your choice: ");
+	        try {
+	            int choice =sc.nextInt();
+	           sc.nextLine();
+	            switch (choice) {
+	                case 1:
+	                	System.out.print("Enter your city: ");
+	                    String city = sc.next();
+	                    city = city.toUpperCase();
+	                    
+	                    System.out.print("Enter your state: ");
+	                    String state = sc.next();
+	                    state = state.toUpperCase();
+	                    
+	                    System.out.print("Enter your blood group: ");
+	                    String bloodGroup = sc.next();
+	                    bloodGroup = bloodGroup.toUpperCase();
+	                    System.out.print("Enter your city: ");
+	               
+	                    bloodGroup = "";
+	                    while (true) {
+	                        System.out.print("Enter your blood group (A/B/AB/O): ");
+	                        bloodGroup = sc.next().toUpperCase();
+	                        if (bloodGroup.equals("A") || bloodGroup.equals("B") || bloodGroup.equals("AB") || bloodGroup.equals("O")) {
+	                            break;
+	                        } else {
+	                            System.out.println("Invalid blood group. Please enter A, B, AB or O.");
+	                        }
+	               
+	                break;
+	                    } 
+	                case 2:
+	                    viewAllDonors();
+	                    break;
+	                default:
+	                    System.out.println("Invalid choice. Please enter 1 or 2.");
+	                    break;
+	                   
+	            }
+	        } catch (Exception e) {
+	            System.out.println("Invalid input. Please try again.");
+	            sc.nextLine(); 
+	        }
+	    }   
+	       
+	     
+
+	    public static void searchNearestDonor(String city, String state,double  bloodGroup) {
+	        double minDistance = Double.MAX_VALUE;
+	        BloodDonor nearestDonor = null;
+
+	        for (BloodDonor donor : donors) {
+	            if (donor.getBloodGroup().equals(bloodGroup) && donor.getCity().equalsIgnoreCase(city) && donor.getState().equalsIgnoreCase(state)) {
+	                double distance = calculateDistance(city, state, donor.getCity(), donor.getState());
+	                if (distance < minDistance) {
+	                    minDistance = distance;
+	                    nearestDonor = donor;
+	                }
+	            }
+	        }
+
+	        if (nearestDonor == null) {
+	            System.out.println("No donor found.");
+	        } else {
+	            System.out.println("Nearest donor:");
+	            System.out.println(nearestDonor);
+	        }
+	    }
+
+	    public static void viewAllDonors() {
+	        if (donors.isEmpty()) {
+	            System.out.println("No donors found.");
+	        } else {
+	       System.out.println("All donors:");
+	            for (BloodDonor donor : donors) {
+	            	donor.displayDetails();
+	                System.out.println(donor);
+	            }
+	        }
+	    }
+
+	    public static double calculateDistance(String city1, String state1, String city2, String state2) {
+	       
+	        return 0;
+	    }
+}
+
+
+package com.blooddonormanage.system;
+
+import java.util.Scanner;
+
+public class BloodDonor {
+	private String name;
+	private int age;
+	private double  weight;
+	private String bloodGroup;
+	private String mobileNumber;
+	private String email;
+	private String city;
+	private String state;
+	private String address;
+	private String  medicalHistory;
+
+	public BloodDonor(String name, int age, double weight, String bloodGroup, String mobileNumber,
+            String email, String city, String state) {
+		this.name = name;
+	    this.age = age;
+	    this.weight = weight;
+	    this.bloodGroup = bloodGroup;
+	    this.mobileNumber = mobileNumber;
+	    this.email = email;
+	    this.city = city;
+	    this.state = state;
+	    this.address = address;
+	    this.medicalHistory = medicalHistory;
+	    
+	    if (address != null && !address.isEmpty()) {
+            this.address = address;
+        } else {
+            this.address = "Address not provided";
+        }
+    
+	}
+	 void displayDetails() {
+	        System.out.println("Name: " + name);
+	        System.out.println("Age: " + age);
+	        System.out.println("Weight: " + weight);
+	        System.out.println("Blood Group: " + bloodGroup);
+	        System.out.println("Mobile Number: " + mobileNumber);
+	        System.out.println("City: " + city);
+	        System.out.println("State: " + state);
+	        System.out.println("Address: " + address);
+	    }
+	
+	public String toString() {
+        return "Name: " + name + "\n" +
+                "Age: " + age + "\n" +
+                "Weight: " + weight + "\n" +
+                "Blood Group: " + bloodGroup + "\n" +
+                "Mobile Number: " + mobileNumber + "\n" +
+                "City: " + city + "\n" +
+                "State: " + state + "\n" +
+                "Address: " + String.join(", ", address);
+    }
+
+	
+
+	public String getName() {
+	    return name;
+	}
+
+	public void setName(String name) {
+	    this.name = name;
+	}
+
+	public int getAge() {
+	    return age;
+	}
+
+	public void setAge(int age) {
+	    this.age = age;
+	}
+
+	public double getWeight() {
+	    return weight;
+	}
+
+	public void setWeight(double weight) {
+	    this.weight = weight;
+	}
+
+	public String getBloodGroup() {
+	    return bloodGroup;
+	}
+
+	public void setBloodGroup(String bloodGroup) {
+	    this.bloodGroup = bloodGroup;
+	}
+
+	public String getMobileNumber() {
+	    return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+	    this.mobileNumber = mobileNumber;
+	}
+
+	public String getEmail() {
+	    return email;
+	}
+
+	public void setEmail(String email) {
+	    this.email = email;
+	}
+
+	public String getCity() {
+	    return city;
+	}
+
+	public void setCity(String city) {
+	    this.city = city;
+	}
+
+	public String getState() {
+	    return state;
+	}
+
+	public void setState(String state) {
+	    this.state = state;
+	}
+
+	public String getAddress() {
+	    return address;
+	}
+
+	public void setAddress(String address) {
+		 if (address != null && !address.isEmpty()) {
+	            this.address = address;
+	        } else {
+	            this.address = "Address not provided";
+	        }
+	    }
+	
+
+	public String getMedicalHistory() {
+	    return medicalHistory;
+	}
+
+	public void setMedicalHistory(String medicalHistory) {
+	    this.medicalHistory = medicalHistory;
+	}
+	
+
+	}
+
+
+
+
+
+
+
