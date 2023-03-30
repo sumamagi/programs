@@ -360,8 +360,119 @@ public class BloodDonor {
 	}
 
 
+* 45 கிலோவுக்கு மேல், 18 முதல் 60 வயது வரை உள்ள அனைவரும் மூன்று மாதங்களுக்கு ஒரு முறை ரத்த தானம் செய்யலாம்.
+
+* மாதவிடாய்க் காலங்களில், கர்ப்பக் காலங்களில் உள்ள பெண்கள் செய்யக் கூடாது.
+
+* பாலூட்டும் தாய்மார்கள் செய்யக் கூடாது.
+
+* மது அருந்தியவர்கள், புகைப் பழக்கம் உள்ளவர்கள் செய்யக் கூடாது.
+
+* ஏதேனும் தொற்றுநோய் உள்ளவர்கள், காய்ச்சலில் இருப்பவர்கள்... என நோய்வாய்ப்பட்டவர்கள் செய்யக் கூடாது.
+
+* 18 வயதுக்குக் கீழ் உள்ளவர்கள், 45-க்கும் கீழ் எடை உள்ளவர்கள், ரத்தத்தில் ஹீமோகுளோபின் அளவு குறைவாக உள்ளவர்கள் செய்யக் கூடாது.
+
+* எய்ட்ஸ், சர்க்கரைநோய், ரத்த அழுத்தம், வலிப்பு, அறுவைசிகிச்சை செய்துகொண்டவர்கள் செய்யக் கூடாது.
+
+ரத்த தானம் செய்ய விரும்புபவர்கள், மது மற்றும் புகைப்பழக்கத்தைத் தவிர்ப்பது நல்லது. புகைப் பழக்கம் உள்ளவர்கள், புகைபிடித்து மூன்று மணி நேரத்துக்குப் பிறகு ரத்த தானம் செய்யலாம்.
+
+* உடலுக்குத் தேவையான அளவு இரும்புச்சத்து அளிக்கும் உணவுகளை உண்ண வேண்டும்.
+
+* ரத்தம் கொடுப்பதற்கு முன்னர் சீரான தூக்கம் அவசியம்.
+
+* ரத்தம் கொடுப்பதற்கு முன்னர் சிறிதளவு தண்ணீர் அல்லது பழச் சாறு அருந்தலாம்.
+
+* ரத்தம் கொடுப்பதற்கு முன்னர் ஆரோக்கியமான உணவை சாப்பிட வேண்டும்.
+
+* ரத்தம் கொடுக்கும்போது, இறுக்கமாக அல்லாமல் தளர்வான உடைகளை அணியலாம்.
+
+* ரத்தம் கொடுப்பதற்கு முன்னர், மனஅமைதியுடன் இருக்க வேண்டும். மெல்லிய இசையை ரசிக்கலாம்.
+
+* ரத்தம் கொடுத்த பின்னர், பழச்சாறு, ஹெல்தி ஸ்நாக்ஸ் அல்லது ஆரோக்கியமான பச்சைக் காய்கறிகள் மற்றும் பழங்கள் நிறைந்த உணவுகளை உட்கொள்ளலாம்.
+
+* ரத்தம் கொடுத்த அடுத்த 24 மணி நேரத்துக்கு மது அருந்தக் கூடாது. திரவ உணவை எடுத்துக்கொள்ளலாம்.
+
+* ரத்தம் கொடுத்த பின்னர், எடை அதிகம் உள்ள பொருள்களைத் தூக்கக் கூடாது. கடுமையான உடற்பயிற்சி செய்யக் கூடாது.
+
+* ரத்தம் கொடுத்த அடுத்த 24 மணி நேரத்துக்கு கடினமான செயல்கள் எதுவும் செய்யக் கூடாது. வியர்வையை உண்டாக்கும் செயல்கள், விளையாட்டு, பணி போன்றவற்றைத் தவிர்க்கலாம்.  Translation:  in english
 
 
+rule;
+public class BloodDonation {
 
+    public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
 
+        // List of donors
+        ArrayList<Donor> donors = new ArrayList<>();
+        donors.add(new Donor("John", "A+", 50, 30));
+        donors.add(new Donor("Mary", "O-", 60, 35));
+        donors.add(new Donor("Bob", "B+", 70, 40));
+        donors.add(new Donor("Alice", "AB-", 80, 45));
+
+        // Get donor information from user
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter your blood group: ");
+        String bloodGroup = scanner.nextLine();
+        System.out.print("Enter your weight (in kilograms): ");
+        double weight = scanner.nextDouble();
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+        System.out.print("Are you pregnant (y/n)? ");
+        boolean isPregnant = scanner.next().equalsIgnoreCase("y");
+        System.out.print("Are you breastfeeding (y/n)? ");
+        boolean isBreastfeeding = scanner.next().equalsIgnoreCase("y");
+        System.out.print("Do you drink alcohol (y/n)? ");
+        boolean isDrinking = scanner.next().equalsIgnoreCase("y");
+        System.out.print("Do you use drugs (y/n)? ");
+        boolean isUsingDrugs = scanner.next().equalsIgnoreCase("y");
+        System.out.print("Do you have a fever (y/n)? ");
+        boolean hasFever = scanner.next().equalsIgnoreCase("y");
+        System.out.print("Do you have any disease (y/n)? ");
+        boolean hasDisease = scanner.next().equalsIgnoreCase("y");
+        System.out.println();
+
+        // Check if donor is eligible
+        if (weight >= 45 && age >= 18 && age <= 60 && !isPregnant && !isBreastfeeding &&
+                !isDrinking && !isUsingDrugs && !hasFever && !hasDisease) {
+
+            // Check if donor has sufficient hemoglobin level
+            System.out.print("Enter your hemoglobin level (in grams per deciliter): ");
+            double hemoglobinLevel = scanner.nextDouble();
+            if (hemoglobinLevel >= 12.5) {
+
+                // Find nearest donor with required blood group
+                Donor nearestDonor = null;
+                double minDistance = Double.MAX_VALUE;
+                for (Donor donor : donors) {
+                    if (donor.getBloodGroup().equals(bloodGroup)) {
+                        double distance = Math.sqrt(Math.pow(weight - donor.getWeight(), 2) +
+                                Math.pow(age - donor.getAge(), 2));
+                        if (distance < minDistance) {
+                            nearestDonor = donor;
+                            minDistance = distance;
+                        }
+                    }
+                }
+
+                // Display nearest donor
+                if (nearestDonor != null) {
+                    System.out.println("Nearest donor with blood group " + bloodGroup + " is " +
+                            nearestDonor.getName() + " (weight: " + nearestDonor.getWeight() +
+                            " kg, age: " + nearestDonor.getAge() + " years)");
+                } else {
+                    System.out.println("No donor found with blood group " + bloodGroup);
+                }
+
+            } else {
+                System.out.println("You do not have sufficient hemoglobin level to donate blood");
+            }
+
+        } else {
+            System.out.println("You are not eligible to donate blood");
+        }
+	
+	
+	
