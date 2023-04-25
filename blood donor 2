@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donor's Registration</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+   <style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('image/1042494469-donate_blood_rotator.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  </style>
+<script src="app.js" defer></script> 
+</head>
+<body>
+       <div class="container"> 
+         <div class="form-container">
+       <form action="LOGIN" method="post" id="form">
+                <h1>ADMIN LOGIN</h1>
+                      <div  class="input-group">
+                         <label for="username">Username</label>
+                         <input type="text"  id="username"  name= "username">
+                  <div class="error">Please enter a valid username</div>
+</div>
+<br>
+                       
+                       <div  class="input-group">
+                         <label for="password">Password</label>
+                         <input type="password"  id="password"  name= "passsword">
+                      <div class="error"></div>
+
+</div>
+
+
+<button class="submit">LOGION</button>
+<br>
+</form>
+</div>
+</div>
+</body>
+</html>
+and 
+
+
+
+
+
+css
+
+body {
+    background-image: url('/image/1042494469-donate_blood_rotator.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('image/1042494469-donate_blood_rotator.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+}
+#form {
+    width: 350px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.submit {
+  background-color: darkgreen;
+  color: green;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none; 
+}
+.submit:hover {
+  background-color: darkgreen;
+  color: black;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid rgb(34, 193, 195);
+}
+
+.input-group input:focus {
+    outline: 0;
+}
+
+.error {
+    color: rgb(242, 18, 18);
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+
+
